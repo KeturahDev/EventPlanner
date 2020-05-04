@@ -16,6 +16,7 @@ function App(props) {
   //add handler functions, enact reducers {dispach(action)}
   //pass preset data into event list through: app -> main -> eventList
   //add firebase
+  //add data visualization {google charts? look @ libraries}
   //...
   //profit
   
