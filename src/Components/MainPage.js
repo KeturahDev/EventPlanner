@@ -8,8 +8,6 @@ const MainPage = props => {
     <React.Fragment>
       <button onClick={console.log('clicked')}>Add New Event</button>
       <EventList />
-      <NewEventForm />
-      <EventDetails />
     </React.Fragment>
   )
 }
