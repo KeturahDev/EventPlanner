@@ -21,7 +21,10 @@ function EventDetails(props) { //button id = prop?
 }
 
 EventDetails.propTypes = {
-  handleBackToMainPage: PropTypes.func
+  handleBackToMainPage: PropTypes.func,
+  title: PropTypes.string,
+  host: PropTypes.string,
+  date: PropTypes.string
 }
 
 

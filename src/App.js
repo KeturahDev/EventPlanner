@@ -8,10 +8,11 @@ import NewEventForm from './Components/NewEventForm';
 function App(props) {
 
   const [currentPage, setPage] = useState('MainPage');
+  const [selectedEvent, setEvent] = useState({});
   
   function setVisibility() {
     if(currentPage === 'MainPage') {
-      return {component: <MainPage handleChangeViewClick={setPage}/>}
+      return {component: <MainPage handleChangeViewClick={setPage} handleSelectEvent={setEvent} />}
     } else if (currentPage === 'NewEventForm'){
       return {component: <NewEventForm handleBackToMainPage={setPage} />}
     } else if (currentPage === "EventDetails") {
