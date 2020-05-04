@@ -8,7 +8,10 @@ import {createStore} from 'redux';
 import rootReducer from './reducers'
 import Events from "./Data/Events"
 
-const store = createStore(rootReducer, {Events: Events}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+const store = createStore(
+  rootReducer, 
+  {presetEvents: Events}, 
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 store.subscribe(() =>
   console.log(store.getState())
