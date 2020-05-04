@@ -17,6 +17,11 @@
 * As a user, I want to be able to give my status on whether I am going, might be going, or not going an event, and see in reali time my response effecting the graph
 * As a user, I want to be able to create an event and see it appear in the events list
 
+## Setup/Installation Requirements
+
+Download
+
+npm install
 
 ## Technologies Used
 
