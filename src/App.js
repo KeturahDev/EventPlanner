@@ -24,7 +24,6 @@ function App(props) {
     <React.Fragment>
     <Header />
     {currentlyVisible.component}
-    {/* <button onClick={() => setPage('NewEventForm')}>Add new Event</button> */}
     <Footer />
     </React.Fragment>
   )
