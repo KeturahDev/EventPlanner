@@ -1,12 +1,12 @@
 import React from 'react';
 import Event from './Event';
 
-function EventList() {
+function EventList(props) {
     return (
         <React.Fragment>
         <div style={{border: "2px solid purple"}}>
             <p>here's a list of events</p>
-            <Event />{/* //pass in button id? */}
+            <Event handleChangeViewClick={props.handleChangeViewClick} />{/* //pass in button id? */}
         </div>
         </React.Fragment>
     );

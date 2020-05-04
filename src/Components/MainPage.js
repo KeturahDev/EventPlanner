@@ -7,12 +7,12 @@ import PropTypes from 'prop-types'
 const MainPage = props => {
   return (
     <React.Fragment>
-      <button onClick={() => props.handleAddEventClick('NewEventForm')}>Add New Event</button>
-      <EventList />
+      <button onClick={() => props.handleChangeViewClick('NewEventForm')}>Add New Event</button>
+      <EventList handleChangeViewClick={props.handleChangeViewClick} />
     </React.Fragment>
   )
 }
 MainPage.propTypes = {
-  handleAddEventClick: PropTypes.func
+  handleChangeViewClick: PropTypes.func
 }
 export default MainPage;

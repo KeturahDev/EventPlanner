@@ -1,8 +1,9 @@
 import React from "react";
 import RSVPForm from "./RSVPForm";
 import Results from "./Results";
+import PropTypes from 'prop-types';
 
-function Event(props) { //button id = prop?
+function EventDetails(props) { //button id = prop?
   const exampleEvent = "event";
   return (
     <React.Fragment>
@@ -12,11 +13,16 @@ function Event(props) { //button id = prop?
         <RSVPForm /> {/* take an id as well to insert response into correct event? */}
         <Results />
         {/* <Results id={props.id}/> */}
+        <button onClick={() => props.handleBackToMainPage('MainPage')}>MainPage</button>
         <hr />
       </div>
     </React.Fragment>
   );
 }
 
+EventDetails.propTypes = {
+  handleBackToMainPage: PropTypes.func
+}
 
-export default Event;
+
+export default EventDetails;

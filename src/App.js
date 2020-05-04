@@ -11,11 +11,11 @@ function App(props) {
   
   function setVisibility() {
     if(currentPage === 'MainPage') {
-      return {component: <MainPage handleAddEventClick={setPage}/>}
+      return {component: <MainPage handleChangeViewClick={setPage}/>}
     } else if (currentPage === 'NewEventForm'){
-      return {component: <NewEventForm />}
+      return {component: <NewEventForm handleBackToMainPage={setPage} />}
     } else if (currentPage === "EventDetails") {
-      return {component: <EventDetails />}
+      return {component: <EventDetails handleBackToMainPage={setPage}/>}
     }
   }
 
