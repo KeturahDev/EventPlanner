@@ -22,7 +22,7 @@ function EventDetails(props) { //button id = prop?
 
 EventDetails.propTypes = {
   handleBackToMainPage: PropTypes.func,
-  selectedEvent: PropTypes.object,
+  selectedEvent: PropTypes.object
 }
 
 
