@@ -8,8 +8,11 @@ function Event(props) { //button id = prop?
   return (
     <React.Fragment>
       <div onClick={() => {
-          props.handleChangeViewClick("EventDetails")
-          props.handleSelectEvent({title: props.title, host: props.host, date: props.date})
+          props.handleChangeViewClick("EventDetails");
+          props.handleSelectEvent({
+            title: props.title, 
+            host: props.host, 
+            date: props.date});
         }} 
         style={{ border: "2px solid pink" }}>
         <h3>{props.title}</h3> 

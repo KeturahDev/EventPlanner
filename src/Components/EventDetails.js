@@ -4,12 +4,12 @@ import Results from "./Results";
 import PropTypes from 'prop-types';
 
 function EventDetails(props) { //button id = prop?
-  const exampleEvent = "event";
+  const {selectedEvent} = props;
   return (
     <React.Fragment>
       <div style={{ border: "2px solid orange" }}>
-        <h3>EventTitle</h3>
-        <h4>{exampleEvent}</h4>
+        <h3>{selectedEvent.title}</h3>
+        <h4>On {selectedEvent.date} by: {selectedEvent.host}</h4>
         <RSVPForm /> {/* take an id as well to insert response into correct event? */}
         <Results />
         {/* <Results id={props.id}/> */}
@@ -22,9 +22,7 @@ function EventDetails(props) { //button id = prop?
 
 EventDetails.propTypes = {
   handleBackToMainPage: PropTypes.func,
-  title: PropTypes.string,
-  host: PropTypes.string,
-  date: PropTypes.string
+  selectedEvent: PropTypes.object,
 }
 
 

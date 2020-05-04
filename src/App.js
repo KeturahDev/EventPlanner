@@ -16,7 +16,7 @@ function App(props) {
     } else if (currentPage === 'NewEventForm'){
       return {component: <NewEventForm handleBackToMainPage={setPage} />}
     } else if (currentPage === "EventDetails") {
-      return {component: <EventDetails handleBackToMainPage={setPage}/>}
+      return {component: <EventDetails handleBackToMainPage={setPage} selectedEvent={selectedEvent}/>}
     }
   }
 
