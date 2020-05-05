@@ -13,6 +13,9 @@ function Event(props) { //button id = prop?
             title: props.title, 
             host: props.host, 
             date: props.date,
+            yes: props.yes,
+            maybe: props.maybe,
+            no: props.no,
             id: props.id});
         }} 
         style={{ border: "2px solid pink" }}>

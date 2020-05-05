@@ -13,10 +13,14 @@ function App(props) {
 
   //TODO:
 
-  //add handler functions, enact reducers {dispach(action)}
-  //pass preset data into event list through: app -> main -> eventList
-  //add firebase
-  //add data visualization {google charts? look @ libraries}
+
+  // reducers for yes no maybe button functionality
+  // -results component: tally the number of yes/no/maybe respmonses.. INCREMENT_VOTE
+  // 3 consts : YES< NO< MAYBE,, incrementVote reducer... one action, INCREMENT_VOTE
+  // Signin authentication
+  // delete/edit functionality of events (people who are admins)
+  // add data visualization {google charts? look @ libraries}
+  // END OF DAY: each of us walk through the firbase steps verbally 
   //...
   //profit
   
@@ -39,7 +43,10 @@ function App(props) {
       title: event.title, 
       host: event.host, 
       date: event.date, 
-      id: event.id
+      id: event.id,
+      yes: event.yes,
+      maybe: event.maybe,
+      no: event.no,
     };
     dispatch(action);
   }
@@ -65,6 +72,7 @@ function App(props) {
     </React.Fragment>
   )
 }
+
 const mapStateToProps = state => ({
   events: state.events,
   presetEvents: state.presetEvents,

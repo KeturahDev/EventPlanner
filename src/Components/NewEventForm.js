@@ -11,7 +11,10 @@ function NewEventForm(props) {
     return firestore.collection('events').add({
       title: defaultEvent.target.title.value,
       host: defaultEvent.target.host.value,
-      date: defaultEvent.target.date.value
+      date: defaultEvent.target.date.value,
+      yes: 0,
+      maybe: 0,
+      no:0
     });
   }
 
