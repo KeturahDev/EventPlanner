@@ -3,7 +3,7 @@ import selectedEventReducer from "./selected-event-reducer";
 import currentPageReducer from "./current-page-reducer";
 import {combineReducers} from "redux";
 
-const rootReducer = combineReducer({
+const rootReducer = combineReducers({
   events: eventsReducer,
   currentPage: currentPageReducer,
   selectedEvent: selectedEventReducer
