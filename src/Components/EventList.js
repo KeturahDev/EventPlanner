@@ -9,8 +9,7 @@ function EventList(props) {
   useFirestoreConnect([{ collection: 'events' }]);
 
   const events = useSelector(state => state.firestore.ordered.events);
-
-
+  
     if(isLoaded(events)) {
         return (
             <React.Fragment>

@@ -1,7 +1,6 @@
 import * as firebase from 'firebase';
 import 'firebase/firestore';
 
-console.log(process.env.REACT_APP_FIREBASE_API_KEY);
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
