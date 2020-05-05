@@ -12,7 +12,8 @@ function Event(props) { //button id = prop?
           props.handleSelectEvent({
             title: props.title, 
             host: props.host, 
-            date: props.date});
+            date: props.date,
+            id: props.id});
         }} 
         style={{ border: "2px solid pink" }}>
         <h3>{props.title}</h3> 
