@@ -11,9 +11,10 @@ function Results(props){
     <React.Fragment>
       <div style={{border: "2px solid blue"}}>
         <p>throw graph/data analytics here</p>
+
         {props.yescount}
         {props.maybecount}
-        {props.no}
+        {props.nocount}
       </div>
     </React.Fragment>
   );

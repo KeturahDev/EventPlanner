@@ -6,20 +6,16 @@ import PropTypes from 'prop-types';
 function EventDetails(props) { //button id = prop?
   const {selectedEvent} = props;
 
-  // handleIncrementColCount = (col) => {
-  //   if (col === "yes") {
-  //     action = {type:"INCREMENT_VOTE"}
-  //   }
-  // }
-
+  console.log('selectedEvent: ' + selectedEvent);
   return (
     <React.Fragment>
       <div style={{ border: "2px solid orange" }}>
         <h3>{selectedEvent.title}</h3>
         <h4>On {selectedEvent.date} by: {selectedEvent.host}</h4>
-        <RSVPForm /> {/* take an id as well to insert response into correct event? */}
-        <Results yescount={props.yes} maybecount={props.maybe} nocount={props.no}/>
-        {/* <Results id={props.id}/> */}
+        <RSVPForm selectedEvent={selectedEvent}/> {/* take an id as well to insert response into correct event? */}
+        
+        <Results yescount={selectedEvent.yes} maybecount={selectedEvent.maybe} nocount={selectedEvent.no}/>
+        
         <button onClick={() => props.handleBackToMainPage('MainPage')}>MainPage</button>
         <hr />
       </div>
