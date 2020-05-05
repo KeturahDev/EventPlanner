@@ -20,15 +20,39 @@ function App(props) {
   //...
   //profit
   
+  const { dispatch } = props;
+  function handleChangingView(page) {
+    const action = {}; //
+    if(page === 'MainPage') {
+      action.type = 'SHOW_MAINPAGE';
+    } else if(page === 'NewEventForm') {
+      action.type = 'SHOW_NEWEVENTFORM';
+    } else if(page === 'EventDetails') {
+      action.type = 'SHOW_EVENTDETAILS';
+    }
+    dispatch(action);
+  }
+  
+  function handleChangeSelectedEvent(event) {
+    const action = { 
+      type: 'SELECT_EVENT', 
+      title: event.title, 
+      host: event.host, 
+      date: event.date, 
+      id: event.id
+    };
+    dispatch(action);
+  }
+
   function setVisibility() {
-    if(currentPage === 'MainPage') {
+    if(props.currentPage === 'MainPage') {
       return {component: <MainPage 
-        handleChangeViewClick={setPage}
-        handleSelectEvent={setEvent} />}
-    } else if (currentPage === 'NewEventForm'){
-      return {component: <NewEventForm handleBackToMainPage={setPage} />}
-    } else if (currentPage === "EventDetails") {
-      return {component: <EventDetails handleBackToMainPage={setPage} selectedEvent={selectedEvent}/>}
+        handleChangeViewClick={handleChangingView}
+        handleSelectEvent={handleChangeSelectedEvent} />}
+    } else if (props.currentPage === 'NewEventForm'){
+      return {component: <NewEventForm handleBackToMainPage={handleChangingView} />}
+    } else if (props.currentPage === "EventDetails") {
+      return {component: <EventDetails handleBackToMainPage={handleChangingView} selectedEvent={props.selectedEvent}/>}
     }
   }
 
