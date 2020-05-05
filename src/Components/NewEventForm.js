@@ -1,11 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useFirestore } from 'react-redux-firebase'
 
 function NewEventForm(props) {
+  const firestore = useFirestore();
+
+  function addEventToFirestore(defaultEvent) {
+    defaultEvent.preventDefault();
+    props.handleBackToMainPage('MainPage');
+    return firestore.collection('events').add({
+      title: defaultEvent.target.title.value,
+      host: defaultEvent.target.host.value,
+      date: defaultEvent.target.date.value
+    });
+  }
+
   return(
     <React.Fragment>
       <h3>New Event Form</h3>
-      <form onSubmit={console.log("newEvent")}>
+      <form onSubmit={addEventToFirestore}>
         <input 
           type='text'
           name='title'
