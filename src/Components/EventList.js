@@ -23,9 +23,10 @@ function EventList(props) {
                     yes={event.yes}
                     maybe={event.maybe}
                     no={event.no}
+                    id={event.id}
                     handleChangeViewClick={props.handleChangeViewClick}
                     handleSelectEvent={props.handleSelectEvent}
-                    key={index}
+                    key={event.id}
                 />
                 )}
             </div>

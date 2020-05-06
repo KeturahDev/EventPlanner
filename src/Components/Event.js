@@ -16,8 +16,8 @@ function Event(props) { //button id = prop?
             yes: props.yes,
             maybe: props.maybe,
             no: props.no,
-            // id: props.id
-            });
+            id: props.id
+          });
         }} 
         style={{ border: "2px solid pink" }}>
         <h3>{props.title}</h3> 
