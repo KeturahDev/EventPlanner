@@ -7,24 +7,18 @@ import NewEventForm from './Components/NewEventForm';
 import {connect} from 'react-redux';
 import Signin from "./Components/Signin";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { withFirestore, isLoaded } from 'react-redux-firebase';
+import firebase from "firebase/app";
 
-function App(props) {
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   
-  //TODO:
-
-
-  // reducers for yes no maybe button functionality
-  // -results component: tally the number of yes/no/maybe respmonses.. INCREMENT_VOTE
-  // 3 consts : YES< NO< MAYBE,, incrementVote reducer... one action, INCREMENT_VOTE
-  // Signin authentication
-  // delete/edit functionality of events (people who are admins)
-  // add data visualization {google charts? look @ libraries}
-  // END OF DAY: each of us walk through the firbase steps verbally 
-  //...
-  //profit
+  auth = firebase.auth();
   
-  const { dispatch } = props;
-  function handleChangingView(page) {
+  handleChangingView(page) {
+    const { dispatch } = this.props;
     const action = {}; //
     if(page === 'MainPage') {
       action.type = 'SHOW_MAINPAGE';
@@ -36,7 +30,8 @@ function App(props) {
     dispatch(action);
   }
   
-  function handleChangeSelectedEvent(event) {
+  handleChangeSelectedEvent(event) {
+    const { dispatch } = this.props;
     const action = { 
       type: 'SELECT_EVENT', 
       title: event.title, 
@@ -49,34 +44,77 @@ function App(props) {
     };
     dispatch(action);
   }
-
-  function setVisibility() {
-    if(props.currentPage === 'MainPage') {
+  
+  setVisibility() {
+    if(this.props.currentPage === 'MainPage') {
       return {component: <MainPage 
-        handleChangeViewClick={handleChangingView}
-        handleSelectEvent={handleChangeSelectedEvent} />}
-    } else if (props.currentPage === 'NewEventForm'){
-      return {component: <NewEventForm handleBackToMainPage={handleChangingView} />}
-    } else if (props.currentPage === "EventDetails") {
-      return {component: <EventDetails handleBackToMainPage={handleChangingView} selectedEvent={props.selectedEvent}/>}
+        handleChangeViewClick={this.handleChangingView}
+        handleSelectEvent={this.handleChangeSelectedEvent} />}
+      } else if (this.props.currentPage === 'NewEventForm'){
+        return {component: <NewEventForm handleBackToMainPage={this.handleChangingView} />}
+      } else if (this.props.currentPage === "EventDetails") {
+        return {component: <EventDetails handleBackToMainPage={this.handleChangingView} selectedEvent={this.props.selectedEvent}/>
+      }
     }
   }
+  
 
-  const currentlyVisible = setVisibility();
-  return (
-      <Router >
-        <Header />
-        <Switch>
-          <Route path="/signin">
-            <Signin />
-          </Route>
-        <Route path="/">
-        {currentlyVisible.component}
-        </Route>
-        </Switch>
-        <Footer />
-      </Router>
-  )
+  render() {
+    if(!isLoaded(this.auth)) {
+      return (
+        <React.Fragment>
+          <Router >
+            <Header />
+            <Switch>
+              <Route path="/signin">
+                <Signin />
+              </Route>
+              <Route path="/">
+                <h1>Loading...</h1>
+              </Route>
+            </Switch>
+            <Footer />
+          </Router>
+        </React.Fragment>
+      )
+    }
+    if ((isLoaded(this.auth)) && (this.auth.currentUser == null)) {
+      return (
+        <React.Fragment>
+          <Router >
+          <Header />
+          <Switch>
+            <Route path="/signin">
+              <Signin />
+            </Route>
+            <Route path="/">
+              <h1>You need to be signed in to view this page!</h1>
+            </Route>
+          </Switch>
+          <Footer />
+          </Router>
+        </React.Fragment>
+      )
+    } 
+    if((isLoaded(this.auth)) && (this.auth.currentUser != null)) {
+      return (
+        <React.Fragment>
+          <Router >
+            <Header />
+            <Switch>
+              <Route path="/signin">
+                <Signin />
+              </Route>
+              <Route path="/">
+                {this.setVisibility()}
+              </Route>
+            </Switch>
+            <Footer />
+          </Router>
+        </React.Fragment>
+      )
+    }
+  }
 }
 
 const mapStateToProps = state => ({
