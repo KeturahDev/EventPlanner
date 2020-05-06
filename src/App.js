@@ -5,12 +5,11 @@ import Footer from './Components/Footer';
 import EventDetails from './Components/EventDetails';
 import NewEventForm from './Components/NewEventForm';
 import {connect} from 'react-redux';
+import Signin from "./Components/Signin";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App(props) {
   
-  // const [currentPage, setPage] = useState('MainPage');
-  // const [selectedEvent, setEvent] = useState({});
-
   //TODO:
 
 
@@ -65,11 +64,18 @@ function App(props) {
 
   const currentlyVisible = setVisibility();
   return (
-    <React.Fragment>
-      <Header />
-      {currentlyVisible.component}
-      <Footer />
-    </React.Fragment>
+      <Router >
+        <Header />
+        <Switch>
+          <Route path="/signin">
+            <Signin />
+          </Route>
+        <Route path="/">
+        {currentlyVisible.component}
+        </Route>
+        </Switch>
+        <Footer />
+      </Router>
   )
 }
 
