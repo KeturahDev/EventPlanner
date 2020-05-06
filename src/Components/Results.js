@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
-import { VictoryBar, VictoryChart } from 'victory';
+import { VictoryBar, VictoryChart , VictoryAxis, VictoryTheme } from 'victory';
 
 function Results(props){
 
@@ -17,21 +17,25 @@ function Results(props){
   return(
     <React.Fragment>
       <div style={{border: "2px solid blue"}}>
-        <p>throw graph/data analytics here</p>
-        {/* {graph} */}
-        {props.yescount}
-        {props.maybecount}
-        {props.nocount}
-      </div>
-      <VictoryChart>
+      <VictoryChart 
+      theme={VictoryTheme.material}
+      domainPadding={20}>
         <VictoryBar 
           data={dataArr}
+          style={{data: {fill: ({x}) => 
+            x === "yes" ? "green" : 'pink'
+          }}}
           // data accessor for x values
           x="status"
           // data accessor for y values
           y="votes"
           />
       </VictoryChart>
+        <p>Going: {props.yescount}</p>
+        <p>Might be going: {props.maybecount}</p>
+        <p>Not going: {props.nocount}</p>
+      </div>
+      
     </React.Fragment>
   );
 }
