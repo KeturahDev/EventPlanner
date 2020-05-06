@@ -5,8 +5,6 @@ function Results(props){
 
   // form - takes button info...
 
-
-
   return(
     <React.Fragment>
       <div style={{border: "2px solid blue"}}>
