@@ -8,7 +8,7 @@ function RsvpForm(props) {
    function handleVoteClick(col) {
      if(col === "yes") {
        console.log("IN FUNCTION",props.selectedEvent.id);
-       return firestore.update({collection: 'events', doc: props.selectedEvent.id }, {title: "yes"})
+       return firestore.update({collection: 'events', doc: props.selectedEvent.id }, {yes: props.selectedEvent.yes+1})
     } else if (col === "maybe") {
       return firestore.update({collection: 'events', doc: props.selectedEvent.id }, {maybe: props.selectedEvent.maybe+1})
     } else if (col === "no") {
