@@ -22,7 +22,7 @@ function EventDetails(props) { //button id = prop?
         <div style={{ border: "2px solid orange" }}>
           <h3>{selectedEvent.title}</h3>
           <h4>On {dbSelectedEvent.date} by: {selectedEvent.host}</h4>
-          <RSVPForm selectedEvent={selectedEvent}/> {/* take an id as well to insert response into correct event? */}
+          <RSVPForm selectedEvent={dbSelectedEvent} id={selectedEvent.id}/> {/* take an id as well to insert response into correct event? */}
           
           <Results yescount={dbSelectedEvent.yes} maybecount={dbSelectedEvent.maybe} nocount={dbSelectedEvent.no}/>
           
