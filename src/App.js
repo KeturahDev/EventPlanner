@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import MainPage from './Components/MainPage';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
@@ -8,15 +8,12 @@ import {connect} from 'react-redux';
 import Signin from "./Components/Signin";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { withFirestore, isLoaded } from 'react-redux-firebase';
-import firebase from "firebase/app";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
   }
-  
-  auth = firebase.auth();
-  
+    
   handleChangingView(page) {
     const { dispatch } = this.props;
     const action = {}; //
@@ -58,62 +55,36 @@ class App extends React.Component {
     }
   }
   
-
   render() {
-    if(!isLoaded(this.auth)) {
-      return (
-        <React.Fragment>
-          <Router >
-            <Header />
-            <Switch>
-              <Route path="/signin">
-                <Signin />
-              </Route>
-              <Route path="/">
-                <h1>Loading...</h1>
-              </Route>
-            </Switch>
-            <Footer />
-          </Router>
-        </React.Fragment>
-      )
+    const auth = this.props.firebase.auth();
+    let authComponent = null;
+    if(!isLoaded(auth)) {
+      authComponent = <h1>Loading...</h1>;
     }
-    if ((isLoaded(this.auth)) && (this.auth.currentUser == null)) {
-      return (
-        <React.Fragment>
-          <Router >
+    if ((isLoaded(auth)) && (auth.currentUser == null)) {
+      authComponent = <h1>You need to be signed in to view this page!</h1>
+    } 
+    if((isLoaded(auth)) && (auth.currentUser != null)) {
+      authComponent = this.setVisibility();
+    }
+    console.log("yoooo", auth);
+    return (
+      <React.Fragment>
+      {console.log("in again?")}
+        <Router >
           <Header />
           <Switch>
             <Route path="/signin">
               <Signin />
             </Route>
             <Route path="/">
-              <h1>You need to be signed in to view this page!</h1>
+              {authComponent}
             </Route>
           </Switch>
           <Footer />
-          </Router>
-        </React.Fragment>
-      )
-    } 
-    if((isLoaded(this.auth)) && (this.auth.currentUser != null)) {
-      return (
-        <React.Fragment>
-          <Router >
-            <Header />
-            <Switch>
-              <Route path="/signin">
-                <Signin />
-              </Route>
-              <Route path="/">
-                {this.setVisibility()}
-              </Route>
-            </Switch>
-            <Footer />
-          </Router>
-        </React.Fragment>
-      )
-    }
+        </Router>
+      </React.Fragment>
+    )
   }
 }
 
@@ -126,4 +97,4 @@ const mapStateToProps = state => ({
 
 App = connect(mapStateToProps)(App);
 
-export default App;
+export default withFirestore(App);
