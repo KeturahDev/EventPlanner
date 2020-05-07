@@ -23,7 +23,7 @@ class App extends React.Component {
     });
   }
     
-  handleChangingView(page) {
+  handleChangingView = (page) => {
     const { dispatch } = this.props;
     const action = {}; //
     if(page === 'MainPage') {
@@ -36,7 +36,7 @@ class App extends React.Component {
     dispatch(action);
   }
   
-  handleChangeSelectedEvent(event) {
+  handleChangeSelectedEvent = (event) => {
     const { dispatch } = this.props;
     const action = { 
       type: 'SELECT_EVENT', 
@@ -64,7 +64,8 @@ class App extends React.Component {
     }
   
   
-  render() {
+    render() {
+      console.log("PROPS", this.props)
     const auth = this.props.firebase.auth();
     let authComponent = null;
     if(!isLoaded(auth)) {
@@ -102,5 +103,6 @@ const mapStateToProps = state => ({
 });
 
 App = connect(mapStateToProps)(App);
+console.log("MAP", mapStateToProps)
 
 export default withFirestore(App);
