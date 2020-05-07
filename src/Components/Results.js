@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { VictoryBar, VictoryChart, VictoryTheme } from 'victory';
+import { VictoryBar, VictoryChart, VictoryTheme} from 'victory';
 
 function Results(props){
 

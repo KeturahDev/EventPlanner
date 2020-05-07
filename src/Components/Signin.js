@@ -58,7 +58,7 @@ function Signin(){
           type='password'
           name='password'
           placeholder='Password' />
-        <button type='submit'>Sign up</button>
+        <button className="button" type='submit'>Sign up</button>
       </form>
 
       <h1>Sign In</h1>
@@ -71,7 +71,7 @@ function Signin(){
           type='password'
           name='signinPassword'
           placeholder='Password' />
-        <button type='submit'>Sign in</button>
+        <button className="button" type='submit'>Sign in</button>
       </form>
       <h1>Sign Out</h1>
   <button className="button" onClick={doSignOut}>Sign out</button>

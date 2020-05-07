@@ -3,13 +3,9 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-    /* font-family: Arial, Helvetica, sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #d7fed1;
-  /* background-color: #daf4c9; */
-  /* background-color: #909f86a7; */
-  /* margin: 7% */
 }
 
 code {
@@ -17,21 +13,26 @@ code {
     monospace;
 }
 
-/* buttons */
+input {
+  padding: 7px;
+  margin: 3%;
+  border-radius: 9px;
+  border: 3px solid rgb(104, 104, 104);
+  background-color: #f1faf7;
+}
+
 .centerBox {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 5%;
-  /* padding: 2%; */
-  border: 2px solid #990d0d;
 }
+/* buttons */
 .button {
-  background-image: linear-gradient(to bottom, #b9e8b2, #c7edc1, #d5f2d0, #e2f6df, #f0fbee);
+  background-image: linear-gradient(to left, #b9e8b2, #c7edc1, #d5f2d0, #e2f6df, #f0fbee);
   color:rgb(77, 80, 77);
-  border: 1px solid rgb(104, 104, 104);
+  border: 3px solid rgb(104, 104, 104);
   border-radius: 8px;
-  /* margin-top: 3%; */
   font-size:17px;
 }
 .buttondark {
@@ -39,7 +40,6 @@ code {
   color:rgb(219, 219, 219);
   border: 1px solid black;
   border-radius: 8px;
-  /* margin-top: 3%; */
   padding:1% 35%;
   display:inline-block;
   font-size:17px;

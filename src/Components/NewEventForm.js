@@ -7,9 +7,10 @@ const FormBubble = styled.div `
   border: 2px solid grey;
   border-radius: 9px;
   padding: 3px;
-  padding-left: 7%;
+  ${'' /* padding-left: 7%; */}
   padding-bottom: 3%;
   background-color: #909f86a7;
+  text-align: center;
 `;
 
 function NewEventForm(props) {
@@ -31,8 +32,8 @@ function NewEventForm(props) {
   return(
     <React.Fragment>
     <FormBubble>
-      <h3>New Event Form</h3>
-      <form onSubmit={addEventToFirestore}>
+      <h2>New Event Form</h2>
+      <form className="centerBox" onSubmit={addEventToFirestore}>
         <input 
           type='text'
           name='title'
@@ -45,9 +46,11 @@ function NewEventForm(props) {
           type='text'
           name='date'
           placeholder='Event Date' />
-        <button type="submit">Submit</button>
+        <button className="button" type="submit">Submit</button>
       </form>
-      <button className="button" onClick={() => props.handleBackToMainPage('MainPage')}>Back to Events</button>
+      <div className="centerBox" >
+        <button className="button" onClick={() => props.handleBackToMainPage('MainPage')}>Back to Events</button>
+      </div>
       </FormBubble>
     </React.Fragment>
   )
