@@ -1,10 +1,8 @@
 import React from "react";
-import RSVPForm from "./RSVPForm";
-import Results from "./Results";
 import PropTypes from "prop-types";
 
 function Event(props) { //button id = prop?
-  const exampleEvent = "event";
+
   return (
     <React.Fragment>
       <div onClick={() => {

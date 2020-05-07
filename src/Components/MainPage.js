@@ -1,7 +1,5 @@
 import React from 'react';
 import EventList from './EventList';
-import NewEventForm from './NewEventForm';
-import EventDetails from './EventDetails'; 
 import PropTypes from 'prop-types'
 
 

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useFirestore } from 'react-redux-firebase'
-import v4 from 'uuid'
+
 
 function NewEventForm(props) {
   const firestore = useFirestore();

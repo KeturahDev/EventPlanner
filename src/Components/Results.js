@@ -1,12 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import ReactDOM from 'react-dom';
-import { VictoryBar, VictoryChart , VictoryAxis, VictoryTheme } from 'victory';
+import { VictoryBar, VictoryChart, VictoryTheme } from 'victory';
 
 function Results(props){
-
-  const [data, notSure] = useState({ fill: "tomato" })
-  const [clicked, clickClack] = useState(false)
 
   const dataArr = [ 
     {status: "yes", votes: props.yescount},
@@ -17,20 +13,19 @@ function Results(props){
   return(
     <React.Fragment>
       <div style={{border: "2px solid blue"}}>
-      <VictoryChart 
-      theme={VictoryTheme.material}
-      domainPadding={20}>
-        <VictoryBar 
-          data={dataArr}
-          style={{data: {fill: ({x}) => 
-            x === "yes" ? "green" : 'pink'
-          }}}
-          // data accessor for x values
-          x="status"
-          // data accessor for y values
-          y="votes"
-          />
-      </VictoryChart>
+        <div className={"data"}>
+          <VictoryChart 
+          theme={VictoryTheme.material}
+          domainPadding={20}>
+            <VictoryBar 
+              data={dataArr}
+              style={{data: {fill: "pink"}}}
+              x="status"
+              y="votes"
+              />
+          </VictoryChart>
+        </div>
+      
         <p>Going: {props.yescount}</p>
         <p>Might be going: {props.maybecount}</p>
         <p>Not going: {props.nocount}</p>
@@ -38,6 +33,12 @@ function Results(props){
       
     </React.Fragment>
   );
+}
+
+Results.propTypes = {
+  yescount: PropTypes.number,
+  maybecount: PropTypes.number,
+  nocount: PropTypes.number
 }
 
 export default Results;

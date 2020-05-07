@@ -1,7 +1,7 @@
 import React from 'react';
 import Event from './Event';
 import { useSelector } from 'react-redux'
-import { useFirestoreConnect, isLoaded, isEmpty } from 'react-redux-firebase'
+import { useFirestoreConnect, isLoaded} from 'react-redux-firebase'
 
 
 function EventList(props) {

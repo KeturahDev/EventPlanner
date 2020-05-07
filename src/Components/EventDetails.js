@@ -3,7 +3,7 @@ import RSVPForm from "./RSVPForm";
 import Results from "./Results";
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux'
-import { useFirestoreConnect, isLoaded, isEmpty } from 'react-redux-firebase'
+import { useFirestoreConnect, isLoaded } from 'react-redux-firebase'
 
 function EventDetails(props) { //button id = prop?
   const {selectedEvent} = props;
