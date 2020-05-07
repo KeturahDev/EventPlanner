@@ -2,15 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 
-function Header(){
+function Header(props){
   return (
     <React.Fragment>
       <h1>Event Planner</h1>
       <ul>
-        <li>
+        <li onClick={props.handleClickLink}>
           <Link to="/">Home</Link>
         </li>
-        <li>
+        <li onClick={props.handleClickLink}>
           <Link to="/signin">Sign In</Link>
         </li>
       </ul>

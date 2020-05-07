@@ -12,6 +12,15 @@ import { withFirestore, isLoaded } from 'react-redux-firebase';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      stateToUpdate: false
+    }
+  }
+
+  reRender = () => {
+    this.setState({
+      stateToUpdate: !this.state.stateToUpdate
+    });
   }
     
   handleChangingView(page) {
@@ -44,16 +53,16 @@ class App extends React.Component {
   
   setVisibility() {
     if(this.props.currentPage === 'MainPage') {
-      return {component: <MainPage 
+      return <MainPage 
         handleChangeViewClick={this.handleChangingView}
-        handleSelectEvent={this.handleChangeSelectedEvent} />}
+        handleSelectEvent={this.handleChangeSelectedEvent} />
       } else if (this.props.currentPage === 'NewEventForm'){
-        return {component: <NewEventForm handleBackToMainPage={this.handleChangingView} />}
+        return <NewEventForm handleBackToMainPage={this.handleChangingView} />
       } else if (this.props.currentPage === "EventDetails") {
-        return {component: <EventDetails handleBackToMainPage={this.handleChangingView} selectedEvent={this.props.selectedEvent}/>
+        return <EventDetails handleBackToMainPage={this.handleChangingView} selectedEvent={this.props.selectedEvent}/>
       }
     }
-  }
+  
   
   render() {
     const auth = this.props.firebase.auth();
@@ -69,21 +78,18 @@ class App extends React.Component {
     }
     console.log("yoooo", auth);
     return (
-      <React.Fragment>
-      {console.log("in again?")}
-        <Router >
-          <Header />
-          <Switch>
-            <Route path="/signin">
-              <Signin />
-            </Route>
-            <Route path="/">
-              {authComponent}
-            </Route>
-          </Switch>
-          <Footer />
-        </Router>
-      </React.Fragment>
+      <Router >
+        <Header handleClickLink={this.reRender}/>
+        <Switch>
+          <Route path="/signin">
+            <Signin />
+          </Route>
+          <Route path="/">
+            {authComponent}
+          </Route>
+        </Switch>
+        <Footer />
+      </Router>
     )
   }
 }
