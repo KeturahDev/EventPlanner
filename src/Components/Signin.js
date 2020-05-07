@@ -1,5 +1,17 @@
 import React from "react";
 import firebase from "firebase/app";
+import styled from 'styled-components';
+
+const SignInBubble = styled.div `
+  border: 2px solid grey;
+  border-radius: 9px;
+  padding: 3px;
+  padding-left: 7%;
+  padding-bottom: 3%;
+  background-color: #909f86a7;
+`;
+
+
 
 function Signin(){  
 
@@ -35,6 +47,7 @@ function Signin(){
 
   return (
     <React.Fragment>
+    <SignInBubble>
       <h1>Sign up</h1>
       <form onSubmit={doSignUp}>
         <input
@@ -61,7 +74,8 @@ function Signin(){
         <button type='submit'>Sign in</button>
       </form>
       <h1>Sign Out</h1>
-  <button onClick={doSignOut}>Sign out</button>
+  <button className="button" onClick={doSignOut}>Sign out</button>
+    </SignInBubble>
     </React.Fragment>
   );
 }

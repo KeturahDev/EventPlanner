@@ -1,7 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { useFirestore } from 'react-redux-firebase'
+import { useFirestore } from 'react-redux-firebase';
+import styled from 'styled-components';
 
+const FormBubble = styled.div `
+  border: 2px solid grey;
+  border-radius: 9px;
+  padding: 3px;
+  padding-left: 7%;
+  padding-bottom: 3%;
+  background-color: #909f86a7;
+`;
 
 function NewEventForm(props) {
   const firestore = useFirestore();
@@ -21,6 +30,7 @@ function NewEventForm(props) {
 
   return(
     <React.Fragment>
+    <FormBubble>
       <h3>New Event Form</h3>
       <form onSubmit={addEventToFirestore}>
         <input 
@@ -37,7 +47,8 @@ function NewEventForm(props) {
           placeholder='Event Date' />
         <button type="submit">Submit</button>
       </form>
-      <button onClick={() => props.handleBackToMainPage('MainPage')}>Back to Events</button>
+      <button className="button" onClick={() => props.handleBackToMainPage('MainPage')}>Back to Events</button>
+      </FormBubble>
     </React.Fragment>
   )
 }
