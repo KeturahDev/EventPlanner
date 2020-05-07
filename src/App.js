@@ -8,6 +8,13 @@ import {connect} from 'react-redux';
 import Signin from "./Components/Signin";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { withFirestore, isLoaded } from 'react-redux-firebase';
+import './App.css';
+import styled from 'styled-components';
+
+const AppBody = styled.div `
+  margin: 7%;
+`;
+
 
 class App extends React.Component {
   constructor(props) {
@@ -81,6 +88,7 @@ class App extends React.Component {
     return (
       <Router >
         <Header handleClickLink={this.reRender}/>
+          <AppBody>
         <Switch>
           <Route path="/signin">
             <Signin />
@@ -89,6 +97,7 @@ class App extends React.Component {
             {authComponent}
           </Route>
         </Switch>
+          </AppBody>
         <Footer />
       </Router>
     )
