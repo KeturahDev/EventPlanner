@@ -16,8 +16,7 @@ function Event(props) { //button id = prop?
             no: props.no,
             id: props.id
           });
-        }} 
-        style={{ border: "2px solid pink" }}>
+        }} >
         <h3>{props.title}</h3> 
       </div>
     </React.Fragment>
