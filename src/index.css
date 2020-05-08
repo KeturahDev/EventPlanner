@@ -20,12 +20,26 @@ input {
   border: 3px solid rgb(104, 104, 104);
   background-color: #f1faf7;
 }
-
+/* nav bar */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-image: linear-gradient(to bottom, #b3f484, #83b462, #567842, #2e4124, #060f00);
+}
+.blocks {
+  display: block;
+  padding: 14px 16px;
+}
+.linkBox {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
 .centerBox {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-top: 5%;
+  justify-content: space-around;
 }
 /* buttons */
 .button {
