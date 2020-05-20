@@ -25,13 +25,13 @@ npm install
 
 ## Technologies Used
 
-* Node.js
-* Webpack
-* npm
-* Javascript
-* jQuery
 * React
+* FireStore / Firebase
 * Redux
+* Victory
+* npm
+* git
+* VSCode
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
