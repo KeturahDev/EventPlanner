@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/EventPlanner/static/css/main.4bbf3dfe.chunk.css",
+    "main.js": "/EventPlanner/static/js/main.7bee8b64.chunk.js",
+    "main.js.map": "/EventPlanner/static/js/main.7bee8b64.chunk.js.map",
+    "runtime-main.js": "/EventPlanner/static/js/runtime-main.d710f938.js",
+    "runtime-main.js.map": "/EventPlanner/static/js/runtime-main.d710f938.js.map",
+    "static/js/2.58292c64.chunk.js": "/EventPlanner/static/js/2.58292c64.chunk.js",
+    "static/js/2.58292c64.chunk.js.map": "/EventPlanner/static/js/2.58292c64.chunk.js.map",
+    "index.html": "/EventPlanner/index.html",
+    "precache-manifest.6fd96d2af462b5a397c922631e7de0f2.js": "/EventPlanner/precache-manifest.6fd96d2af462b5a397c922631e7de0f2.js",
+    "service-worker.js": "/EventPlanner/service-worker.js",
+    "static/css/main.4bbf3dfe.chunk.css.map": "/EventPlanner/static/css/main.4bbf3dfe.chunk.css.map",
+    "static/js/2.58292c64.chunk.js.LICENSE.txt": "/EventPlanner/static/js/2.58292c64.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d710f938.js",
+    "static/js/2.58292c64.chunk.js",
+    "static/css/main.4bbf3dfe.chunk.css",
+    "static/js/main.7bee8b64.chunk.js"
+  ]
+}
