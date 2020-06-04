@@ -22,20 +22,22 @@ function EventList(props) {
       <React.Fragment>
         <div style={{ border: "2px solid purple" }}>
           <p>here's a list of events</p>
-          {events.map((event) =>
-            <EventStyles>
-            <Event
-              title={event.title}
-              host={event.host}
-              date={event.date}
-              yes={event.yes}
-              maybe={event.maybe}
-              no={event.no}
-              id={event.id}
-              handleChangeViewClick={props.handleChangeViewClick}
-              handleSelectEvent={props.handleSelectEvent}
+          {events.map((event, index) =>
+            <EventStyles
               key={event.id}
-            /></EventStyles>
+            >
+              <Event
+                title={event.title}
+                host={event.host}
+                date={event.date}
+                yes={event.yes}
+                maybe={event.maybe}
+                no={event.no}
+                id={event.id}
+                handleChangeViewClick={props.handleChangeViewClick}
+                handleSelectEvent={props.handleSelectEvent}
+              />
+            </EventStyles>
           )}
         </div>
       </React.Fragment>

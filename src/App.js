@@ -45,6 +45,7 @@ class App extends React.Component {
   
   handleChangeSelectedEvent = (event) => {
     const { dispatch } = this.props;
+    console.log("event id: ",event.id)
     const action = { 
       type: 'SELECT_EVENT', 
       title: event.title, 
