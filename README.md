@@ -1,5 +1,5 @@
 # Event Planner 
-## [Deployed Site](https://keturahdev.github.io/)
+## [Deployed Site](https://keturahdev.github.io/EventPlanner/)
 
 #### By: Keturah Howard, Jamison Cozart, Zakkrey Short, Steph Podolak
 
