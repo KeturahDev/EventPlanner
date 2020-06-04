@@ -1,8 +1,21 @@
 import React from 'react';
+import style from "styled-components";
+
+const FootStyle = style.div `
+position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #909f86a7;
+  border: 2px solid grey;
+  font-size: 11px;
+`;
 
 const Footer = () => {
   return(
-    <p>&copy; 2020 - Jamison Cozart, Zakkrey Short, Keturah Howard, Stephanie Podolak</p>
+    <FootStyle>
+      <p>&copy; 2020 - Keturah Howard, Jamison Cozart, Zakkrey Short, Stephanie Podolak</p>
+    </FootStyle>
   )
 }
 

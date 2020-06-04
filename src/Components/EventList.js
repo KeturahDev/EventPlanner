@@ -9,6 +9,8 @@ const EventStyles = style.div `
   border: 2px solid grey;
   border-radius: 9px;
   background-color: #909f86a7;
+  padding-left: 6px;
+  margin-top: 6px;
 `;
 
 function EventList(props) {
@@ -20,8 +22,7 @@ function EventList(props) {
   if (isLoaded(events)) {
     return (
       <React.Fragment>
-        <div style={{ border: "2px solid purple" }}>
-          <p>here's a list of events</p>
+        <div>
           {events.map((event, index) =>
             <EventStyles
               key={event.id}

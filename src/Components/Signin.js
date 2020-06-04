@@ -1,8 +1,8 @@
 import React from "react";
 import firebase from "firebase/app";
-import styled from 'styled-components';
+import style from 'styled-components';
 
-const SignInBubble = styled.div `
+const SignInBubble = style.div `
   border: 2px solid grey;
   border-radius: 9px;
   padding: 3px;
@@ -10,8 +10,6 @@ const SignInBubble = styled.div `
   padding-bottom: 3%;
   background-color: #909f86a7;
 `;
-
-
 
 function Signin(){  
 
