@@ -47,14 +47,14 @@ ul {
   color:rgb(77, 80, 77);
   border: 3px solid rgb(104, 104, 104);
   border-radius: 8px;
-  font-size:17px;
+  font-size:20px;
 }
-.buttondark {
-  background-color: #000000;
-  color:rgb(219, 219, 219);
-  border: 1px solid black;
+.buttonVote {
+  background-color: #fed6e1;
+  color: rgb(34, 58, 32);
+  border: 1px solid rgb(118, 111, 120);
   border-radius: 8px;
-  padding:1% 35%;
-  display:inline-block;
-  font-size:17px;
+  margin-left: 12px;
+  margin-right: 12px;
+  font-size:23px;
 }

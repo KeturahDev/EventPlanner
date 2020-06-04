@@ -9,6 +9,7 @@ position: fixed;
   background-color: #909f86a7;
   border: 2px solid grey;
   font-size: 11px;
+  padding-left: 7%
 `;
 
 const Footer = () => {

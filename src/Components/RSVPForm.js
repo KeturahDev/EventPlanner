@@ -1,6 +1,11 @@
 import React from "react";
 import { useFirestore } from 'react-redux-firebase';
-// import PropTypes from "prop-types";
+import style from 'styled-components'
+
+const ButtonBox = style.div `
+  padding: 5px;
+  
+`;
 
 function RsvpForm(props) {
   const firestore = useFirestore();
@@ -17,21 +22,13 @@ function RsvpForm(props) {
   }
 
   return (
-    <React.Fragment>
-      <button onClick={() => handleVoteClick("yes")}>Yes</button>
-      <button onClick={() => handleVoteClick("no")}>No</button>
-      <button onClick={() => handleVoteClick("maybe")}>Maybe So</button>
-    </React.Fragment>
+    <ButtonBox>
+      <button className="buttonVote" onClick={() => handleVoteClick("yes")}>Yes</button>
+      <button className="buttonVote" onClick={() => handleVoteClick("maybe")}>Maybe</button>
+      <button className="buttonVote" onClick={() => handleVoteClick("no")}>No</button>
+    </ButtonBox>
   );
 }
 
 export default RsvpForm;
 
-// const propertiesToUpdate = {
-//   names: event.target.names.value,
-//   location: event.target.location.value,
-//   issue: event.target.issue.value,
-//   yes: event.target.yes.value ++
-// }
-// ({collection: 'events', doc: yes: event.yes}, properties)
-// return firestore.update({collection: 'tickets', doc: ticket.id }, propertiesToUpdate)
